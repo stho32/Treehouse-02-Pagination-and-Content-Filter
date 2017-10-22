@@ -50,7 +50,21 @@ function ApplyUnobstrusivePaging(selector) {
     log("This makes " + pageCount + " pages.")
 
     function showPage(pageNumber) {
-        console.log(pageNumber);
+        let startIndex = pageNumber * pageSize;
+        let endIndex = pageNumber * pageSize + pageSize -1;
+
+        for (let i = 0; i < $listItems.length; i++ ) {
+            let isVisible = $($listItems[i]).is(":visible");
+            if ( i >= startIndex && i <= endIndex ) {
+                /* These elements should be visible */
+                if ( !isVisible ) $($listItems[i]).show();
+            }
+            else
+            {
+                /* These elements should NOT be visible */
+                if ( isVisible ) $($listItems[i]).hide();
+            }
+        }
     }    
 
     let pagingControl = PagingControl($list.parent(), pageCount, showPage);
