@@ -556,9 +556,21 @@
            </div>
         </li>
       </ul>
-      <-- dynamically add pagination links here -->
 
     </div>
+
+    <script src="js/vendor/jquery-3.2.1.min.js"></script>
+
+    <script src="js/pagingControl.js"></script>
+    <script src="js/main.js"></script>
+    
+    <script>
+        $(document).ready(
+            function() {
+                ApplyUnobstrusivePaging(".student-list");
+            }
+        );
+    </script>
   </body>
 </html>
 
