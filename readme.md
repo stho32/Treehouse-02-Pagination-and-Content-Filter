@@ -3,7 +3,7 @@
 Treehouse Pagination and Content Filter is the second project of the Full Stack Javascript 
 Tech Degree.
 
-See Documentation/Pagination-Project-2-Guide.pdf for the instructions.
+See Documentation/requirements.md for the instructions.
 
 In short: 
 
