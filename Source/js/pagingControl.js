@@ -40,8 +40,9 @@ function PagingControl($attachToThisElement, pageCount, showPageCallback) {
   publicApi.templateEnd = "</ul></div>";
   // note : I added data-pageNumber. This way every item remembers which page it stands for. 
   //        Independently of the text it shows. 
-  publicApi.listElement = "<li data-pagenumber=\"$pageNumber$\"><a href=\"#\">$pageNumber$</a></li>";
-  publicApi.listElementActive = "<li data-pagenumber=\"$pageNumber$\"><a class=\"active\" href=\"#\">$pageNumber$</a></li>";
+  // note : replaced href="#" with "javascript:void(0)" to stop the page from jumping to the top when clicking a button
+  publicApi.listElement = "<li data-pagenumber=\"$pageNumber$\"><a href=\"javascript:void(0)\">$pageNumber$</a></li>";
+  publicApi.listElementActive = "<li data-pagenumber=\"$pageNumber$\"><a class=\"active\" href=\"javascript:void(0)\">$pageNumber$</a></li>";
 
 
   /* PRIVATE variables */
@@ -84,6 +85,8 @@ function PagingControl($attachToThisElement, pageCount, showPageCallback) {
    * And we call the callback function so our users have a chance to react on the page change.
    */
   function onButtonClick(event) {
+    event.stopPropagation();
+
     let $clickedListElement = $(event.target).closest("li");
     let newPageNumber = parseInt( $clickedListElement.data("pagenumber") ) -1;
 
@@ -100,6 +103,8 @@ function PagingControl($attachToThisElement, pageCount, showPageCallback) {
 
     /// Since the active page has changed, we need to modify the layout of the control.
     publicApi.updateDom();
+
+    event.preventDefault();
   }
 
   /**
