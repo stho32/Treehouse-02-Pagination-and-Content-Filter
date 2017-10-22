@@ -90,11 +90,6 @@ function PagingControl($attachToThisElement, pageCount, showPageCallback) {
     let $clickedListElement = $(event.target).closest("li");
     let newPageNumber = parseInt($clickedListElement.data("pagenumber")) - 1;
 
-    /// The active page is already shown, thus we probably do not need to do anything
-    if (newPageNumber === activePage) {
-      return;
-    }
-
     activePage = newPageNumber;
 
     if (publicApi.showPageCallback !== undefined) {
@@ -111,10 +106,7 @@ function PagingControl($attachToThisElement, pageCount, showPageCallback) {
    * When the control is not in the DOM yet we need to place it there...  
    */
   function appendControlToDOM() {
-    if (publicApi.$element !== undefined) {
-      publicApi.$element.remove();
-      publicApi.$element = undefined;
-    }
+    publicApi.remove();
 
     // append a fresh copy of the buttons
     $(publicApi.$attachToThisElement).append(renderTemplate());
@@ -135,6 +127,14 @@ function PagingControl($attachToThisElement, pageCount, showPageCallback) {
     appendControlToDOM();
   }
 
+  /* Removes the DOM element if needed */
+  publicApi.remove = function() {
+    if (publicApi.$element !== undefined) {
+      publicApi.$element.remove();
+      publicApi.$element = undefined;
+    }
+  }
+
   /**
    * setActivePage(number)
    * 
@@ -143,7 +143,7 @@ function PagingControl($attachToThisElement, pageCount, showPageCallback) {
    */
   publicApi.setActivePage = function (number) {
     activePage = number;
-    updateDom();
+    publicApi.updateDom();
   }
 
 
