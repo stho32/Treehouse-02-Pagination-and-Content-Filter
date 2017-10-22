@@ -1,8 +1,7 @@
 /**
- * Paging and Content Filtering  main file 
+ * Paging for a list
  * 
  * As requested for the project 2/12 by team treehouse.
- * 
  */
 
 /**
@@ -66,3 +65,4 @@ function UnobstrusivePaging(selector) {
     showPage(0);
 
 }
+
