@@ -14,7 +14,7 @@
  *  The selector should identify exactly one list, an ul or ol, with good nice
  *  li elements inside. 
  */
-function ApplyUnobstrusivePaging(selector) {
+function UnobstrusivePaging(selector) {
 
     if ( $(selector).length !== 1 ) {
         console.log("I'm sorry, but your selector doesn't seem to make much sense. I cannot get the just-one-list I was hoping for.");
@@ -37,6 +37,8 @@ function ApplyUnobstrusivePaging(selector) {
     function showPage(pageNumber) {
         let startIndex = pageNumber * pageSize;
         let endIndex = pageNumber * pageSize + pageSize -1;
+        
+        console.log("showing " + (startIndex + 1).toString() + " to " + (endIndex + 1).toString());
 
         for (let i = 0; i < $listItems.length; i++ ) {
             let isVisible = $($listItems[i]).is(":visible");
