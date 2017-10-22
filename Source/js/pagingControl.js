@@ -113,7 +113,7 @@ function PagingControl($attachToThisElement, pageCount, showPageCallback) {
     // and keep a reference to the dom object for further operations later on.
     publicApi.$element = publicApi.$attachToThisElement.parent().find("." + publicApi.markerClass);
 
-    $(publicApi.$element).on("click", onButtonClick);
+    $(publicApi.$element).on("click", "a", onButtonClick);
     console.log("paging control has been attached/updated!");
   }
 
