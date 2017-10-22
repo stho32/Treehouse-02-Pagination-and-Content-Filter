@@ -125,6 +125,10 @@ function PagingControl($attachToThisElement, pageCount, showPageCallback) {
   */
   publicApi.updateDom = function () {
     appendControlToDOM();
+    /* fire callback so dependent ui can be updated, too */
+    if (publicApi.showPageCallback !== undefined) {
+      publicApi.showPageCallback(activePage);
+    }
   }
 
   /* Removes the DOM element if needed */
