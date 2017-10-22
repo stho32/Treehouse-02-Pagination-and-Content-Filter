@@ -5,21 +5,6 @@
  * 
  */
 
-// In case you'd like a lot of debug output to get a grasp of everything
-// feel free to set DEBUG to true. 
-// Set it to false if you just want to use it.
-const DEBUG = true;
-
-/* log logs the text to the console if DEBUG is set to 
-   true 
-*/
-function log(textOrObject) 
-{
-    if ( DEBUG ) {
-        console.log(textOrObject);
-    }
-}
-
 /**
  * You have that list and then you think: 
  * Man, I should page this.
@@ -37,7 +22,7 @@ function ApplyUnobstrusivePaging(selector) {
 
     let $list = $(selector);
     let $listItems = $(selector).children("li");
-    log("I found " + $listItems.length + " list items.");
+    console.log("I found " + $listItems.length + " list items.");
 
     // Initial configuration
     const pageSize   = 10;
@@ -47,7 +32,7 @@ function ApplyUnobstrusivePaging(selector) {
     // We need to use ceil here. Rounding would forget a page when the remaining
     // elements on the last page are less then 0.5.
     const pageCount = Math.ceil($listItems.length / pageSize);
-    log("This makes " + pageCount + " pages.")
+    console.log("This makes " + pageCount + " pages.")
 
     function showPage(pageNumber) {
         let startIndex = pageNumber * pageSize;
@@ -68,9 +53,7 @@ function ApplyUnobstrusivePaging(selector) {
     }    
 
     let pagingControl = PagingControl($list.parent(), pageCount, showPage);
-    
-
-
+ 
     function appendPageLinks() {
         pagingControl.updateDom();
     }
