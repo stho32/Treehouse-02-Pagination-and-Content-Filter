@@ -32,7 +32,12 @@ function UnobstrusiveSearching(selector,
 
     let $list = $(listSelector);
     let $listItems = $(listSelector).children("li");
+    $(listSelector).parent().append('<div class="search-nothing-found">no student\'s found</div>');
+    let $nothingFound = $(listSelector).parent().find(".search-nothing-found");
 
+    /**
+     * Search Callback 
+     */
     function search(searchText) {
         let visibleItemsCount = 0;
 
@@ -55,7 +60,11 @@ function UnobstrusiveSearching(selector,
         }
 
         if ( visibleItemsCount == 0 ) {
-            //showNothingFoundBox();
+            $nothingFound.show()
+        }
+        else
+        {
+            $nothingFound.hide();
         }
     }    
 
