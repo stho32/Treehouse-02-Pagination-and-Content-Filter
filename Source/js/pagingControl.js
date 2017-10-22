@@ -31,7 +31,7 @@ function PagingControl($attachToThisElement, pageCount, showPageCallback) {
   publicApi.showPageCallback = showPageCallback;
   publicApi.$attachToThisElement = $attachToThisElement;
   publicApi.pageCount = pageCount;
- 
+
   // the DOM element that we create for the control
   publicApi.$element;
 
@@ -88,7 +88,7 @@ function PagingControl($attachToThisElement, pageCount, showPageCallback) {
     event.stopPropagation();
 
     let $clickedListElement = $(event.target).closest("li");
-    let newPageNumber = parseInt( $clickedListElement.data("pagenumber") ) -1;
+    let newPageNumber = parseInt($clickedListElement.data("pagenumber")) - 1;
 
     /// The active page is already shown, thus we probably do not need to do anything
     if (newPageNumber === activePage) {
@@ -97,7 +97,7 @@ function PagingControl($attachToThisElement, pageCount, showPageCallback) {
 
     activePage = newPageNumber;
 
-    if ( publicApi.showPageCallback !== undefined ) {
+    if (publicApi.showPageCallback !== undefined) {
       publicApi.showPageCallback(activePage);
     }
 
@@ -120,7 +120,7 @@ function PagingControl($attachToThisElement, pageCount, showPageCallback) {
     $(publicApi.$attachToThisElement).append(renderTemplate());
     // and keep a reference to the dom object for further operations later on.
     publicApi.$element = publicApi.$attachToThisElement.parent().find("." + publicApi.markerClass);
-  
+
     $(publicApi.$element).on("click", onButtonClick);
     console.log("paging control has been attached/updated!");
   }
@@ -132,7 +132,7 @@ function PagingControl($attachToThisElement, pageCount, showPageCallback) {
      the right location.
   */
   publicApi.updateDom = function () {
-      appendControlToDOM();
+    appendControlToDOM();
   }
 
   /**
@@ -141,7 +141,7 @@ function PagingControl($attachToThisElement, pageCount, showPageCallback) {
    * Sets the currently active page. Setting the page
    * updates the DOM and calls the callback function.
    */
-  publicApi.setActivePage = function(number) {
+  publicApi.setActivePage = function (number) {
     activePage = number;
     updateDom();
   }
