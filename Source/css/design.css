@@ -117,3 +117,13 @@ body{
       background-color: #4ba6c3;
       color: #fff;
     }
+
+
+.search-nothing-found {
+  background-color: #4ba6c3;
+  border-radius: 5px;
+  border: 1px solid #eaeaea;
+  padding: 10px; 
+  color: white;
+  text-align: center;
+}
