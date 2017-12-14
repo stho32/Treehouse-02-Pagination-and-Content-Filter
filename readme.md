@@ -15,9 +15,9 @@ In short:
 
 You can find the entry points in the "Source" directory: 
 
-* https://stho32.github.io/treehouse-pagination-and-content-filter/Source/index.html
-* https://stho32.github.io/treehouse-pagination-and-content-filter/Source/student-list-examples/44students.html
-* https://stho32.github.io/treehouse-pagination-and-content-filter/Source/student-list-examples/64students.html
+* https://stho32.github.io/Treehouse-02-Pagination-and-Content-Filter/Source/index.html
+* https://stho32.github.io/Treehouse-02-Pagination-and-Content-Filter/Source/student-list-examples/44students.html
+* https://stho32.github.io/Treehouse-02-Pagination-and-Content-Filter/Source/student-list-examples/64students.html
 
 Although I have included paging, filtering and paging and filtering as separate 
 files and made them easy to switch, in my final testing round I only tested the last
